@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}All recipes{% endblock %}
+
+{% block content %}
+<table class="table mt-5 table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Time</th>
+            <th>Ingredients</th>
+            <th>Servings</th>
+            <th>Cooking_process</th>
+            <th>created</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for recipe in recipes %}
+        <tr>
+            <td>{{ recipe.category }}</td>
+            <td>{{ recipe.title }}</td>
+            <td>{{ recipe.description }}</td>
+            <td>{{ recipe.cooking_time }}</td>
+            <td>{{ recipe.ingredients }}</td>
+            <td>{{ recipe.number_of_servings }}</td>
+            <td>{{ recipe.cooking_process }}</td>
+            <td>{{ recipe.created_at }}</td>
+            <td><button class="btn btn-primary">Order</button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
